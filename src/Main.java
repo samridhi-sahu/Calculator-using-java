@@ -6,6 +6,7 @@ import java.awt.event.*;
 public class Main implements ActionListener{
 
     JFrame frame;
+    JLabel label;
     JTextField textfield;
     JButton[] numberbutton = new JButton[10];
     JButton[] functionbutton = new JButton[9];
@@ -19,13 +20,23 @@ public class Main implements ActionListener{
     char operator;
    Main(){
 
+       label = new JLabel();
+       label.setText("Hey!! I'm your virtual calc");
+       label.setHorizontalTextPosition(JLabel.CENTER);
+       label.setVerticalTextPosition(JLabel.TOP);
+       label.setVerticalAlignment(JLabel.CENTER);
+       label.setHorizontalAlignment(JLabel.CENTER);
+       label.setFont(new Font("MV Boli",font.PLAIN,24));
+       label.setBounds(50,15,350,35);
+
        frame = new JFrame("Calculator");
        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       frame.setSize(480,600);
+       frame.setSize(480,650);
        frame.setLayout(null);
 
+
        textfield = new JTextField();
-       textfield.setBounds(50,20,350,50);
+       textfield.setBounds(50,70,350,50);
        textfield.setBackground(Color.lightGray);
        textfield.setBorder(BorderFactory.createLineBorder(Color.black));
        textfield.setFont(font);
@@ -64,14 +75,17 @@ public class Main implements ActionListener{
            numberbutton[i].setFocusable(false);
        }
 
-       neg.setBounds(50,480,75,50);
-       del.setBounds(132,480,130,50);
-       clr.setBounds(268,480,130,50);
+       neg.setBounds(50,530,75,50);
+       del.setBounds(132,530,130,50);
+       clr.setBounds(268,530,130,50);
 
        panel = new JPanel();
-       panel.setBounds(50,100,350,350);
+       panel.setBounds(50,150,350,350);
        panel.setLayout(new GridLayout(4,4,10,10));
+
        //panel.setBackground(Color.GRAY);
+
+
        panel.add(numberbutton[1]);
        panel.add(numberbutton[2]);
        panel.add(numberbutton[3]);
@@ -89,7 +103,7 @@ public class Main implements ActionListener{
        panel.add(equal);
        panel.add(div);
 
-
+       frame.add(label);
        frame.add(panel);
        frame.add(neg);
        frame.add(del);
@@ -98,10 +112,8 @@ public class Main implements ActionListener{
        frame.setVisible(true);
 
 
-       frame.add(textfield);
 
 
-       frame.setVisible(true);
 
 
    }
